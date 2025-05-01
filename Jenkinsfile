@@ -115,7 +115,7 @@ pipeline {
                         } catch (err) {
                             echo: 'caught error: $err'
                         }
-                        sh "docker run --restart always --name react-app -p 1233:80 -d kaluthulunggit/react-app:${env.BUILD_NUMBER}"
+                        sh "docker run --restart always --name react-app -p 1233:80 -d rajdock231/react-app:${env.BUILD_NUMBER}"
                     }
             }
         }
