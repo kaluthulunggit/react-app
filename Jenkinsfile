@@ -43,7 +43,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build("gcastill0/react-app")
+                    app = docker.build("rajdock231/react-app")
                     app.inside {
                         sh 'echo $(curl localhost:1233)'
                     }
@@ -69,14 +69,14 @@ pipeline {
             }
             steps {
                     script {
-                        sh "docker pull gcastill0/react-app:${env.BUILD_NUMBER}"
+                        sh "docker pull rajdock231/react-app:${env.BUILD_NUMBER}"
                         try {
                             sh "docker stop react-app"
                             sh "docker rm react-app"
                         } catch (err) {
                             echo: 'caught error: $err'
                         }
-                        sh "docker run --restart always --name react-app -p 1233:80 -d gcastill0/react-app:${env.BUILD_NUMBER}"
+                        sh "docker run --restart always --name react-app -p 1233:80 -d rajdock231/react-app:${env.BUILD_NUMBER}"
                     }
             }
         }
